@@ -27,30 +27,43 @@ function displayWinsLossesAndTotal() {
     totalEl.textContent = total;
 }
 
-function handleGuess() {
+function handleGuess(userGuess, correctSpot) {
     resetImages();  //not sure how this will work, better to just input the image instead of a function?
     total++;
 
+    function getRandomHidingSpot(arr) : returns random item from given array
+    const hidingPlaces = [
+        'cup-one',
+        'cup-two',
+        'cup-three',
+    ];
+
   //decide which cup, at random 
-    const randomCupNumber = Math.floor(Math.random() * 3);
+    const randomCupNumber = Math.floor(Math.random() * hidingPlaces.length);
 
-    if (randomCupNumber === 0) {
-        wins++;
 
-        imgCupWithBall.src = './assets/cup-with-ball.png';
+   // if (randomCupNumber === 0) {
+        //wins++;
 
-    } else if (randomCupNumber === 1) {
-        imgCupWithBall.src = './assets/cup-with-ball.png';
+        //imgCupWithBall.src = './assets/cup-with-ball.png';
 
-    } else {
-        imgCupWithBall.src = './assets/cup-with-ball.png';
-    }
+   // } else if (randomCupNumber === 1) {
+      // imgCupWithBall.src = './assets/cup-with-ball.png';
+
+   // } else {
+       // imgCupWithBall.src = './assets/cup-with-ball.png';
+   // }
 
     displayWinsLossesAndTotal();
 }
 
+// set event listeners 
+  // get user input
+  // use user input to update state 
+  // update DOM to reflect the new state
+
 firstButton.addEventListener('click', () => {
-    handleGuess();
+    handleGuess('cup-one', );
 });
 
 
@@ -61,11 +74,3 @@ secondButton.addEventListener('click', () => {
 thirdButton.addEventListener('click', () => {
     handleGuess();
 });
-
-
-
-
-// set event listeners 
-  // get user input
-  // use user input to update state 
-  // update DOM to reflect the new state
