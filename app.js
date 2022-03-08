@@ -31,16 +31,16 @@ function handleGuess(userGuess, correctSpot) {
     resetImages();  //not sure how this will work, better to just input the image instead of a function?
     total++;
 
-    function getRandomHidingSpot(arr) : returns random item from given array
+    function getRandomHidingSpot() {
     const hidingPlaces = [
         'cup-one',
         'cup-two',
         'cup-three',
-    ];
+    ];   // don't I need a } here?
 
   //decide which cup, at random 
     const randomCupNumber = Math.floor(Math.random() * hidingPlaces.length);
-
+    return hidingPlaces[index];
 
    // if (randomCupNumber === 0) {
         //wins++;
@@ -63,14 +63,14 @@ function handleGuess(userGuess, correctSpot) {
   // update DOM to reflect the new state
 
 firstButton.addEventListener('click', () => {
-    handleGuess('cup-one', );
+    handleGuess('cup-one', getRandomHidingSpot());
 });
 
 
 secondButton.addEventListener('click', () => {
-    handleGuess();
+    handleGuess('cup-two', getRandomHidingSpot());
 });
 
 thirdButton.addEventListener('click', () => {
-    handleGuess();
+    handleGuess('cup-three', getRandomHidingSpot());
 });
