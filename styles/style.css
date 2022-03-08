@@ -91,4 +91,30 @@ footer {
 .cups {
     display: flex;
     flex-direction: row;
+    height: 300px;
+}
+
+.cup {
+    height: 300px;
+    display: flex;
+}
+
+.cup-with-ball {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cup-no-ball-img {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
+
+.cup-with-ball-img {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
 }

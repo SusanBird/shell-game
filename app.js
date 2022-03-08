@@ -27,20 +27,27 @@ function displayWinsLossesAndTotal() {
     totalEl.textContent = total;
 }
 
+function getRandomHidingSpot() {
+  const hidingPlaces = [
+      'cup-one',
+      'cup-two',
+      'cup-three',
+  ];   // don't I need a } here?
+
+//decide which cup, at random 
+  const randomCupNumber = Math.floor(Math.random() * hidingPlaces.length);
+  return hidingPlaces[index];
+
 function handleGuess(userGuess, correctSpot) {
-    resetImages();  //not sure how this will work, better to just input the image instead of a function?
-    total++;
+    
+  resetImages();  //not sure how this will work, better to just input the image instead of a function?
+    
+  total++;
 
-    function getRandomHidingSpot() {
-    const hidingPlaces = [
-        'cup-one',
-        'cup-two',
-        'cup-three',
-    ];   // don't I need a } here?
+  const hidingSpotEl = document.getElementById(correctSpot + '-container');
 
-  //decide which cup, at random 
-    const randomCupNumber = Math.floor(Math.random() * hidingPlaces.length);
-    return hidingPlaces[index];
+// then show image with ball
+ // not this but something like it:  hidingSpotEl.classList.add('face');
 
    // if (randomCupNumber === 0) {
         //wins++;
@@ -53,6 +60,9 @@ function handleGuess(userGuess, correctSpot) {
    // } else {
        // imgCupWithBall.src = './assets/cup-with-ball.png';
    // }
+   if (userGuess === correctSpot) {
+    correctGuesses++;
+} 
 
     displayWinsLossesAndTotal();
 }
