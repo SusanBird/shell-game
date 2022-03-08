@@ -27,26 +27,30 @@ function displayWinsLossesAndTotal() {
     totalEl.textContent = total;
 }
 
-buttonOne.addEventListener('click', () => {
+function handleGuess() {
     resetImages();  //not sure how this will work, better to just input the image instead of a function?
     total++;
 
-    //decide which cup, at random 
+  //decide which cup, at random 
     const randomCupNumber = Math.floor(Math.random() * 3);
 
     if (randomCupNumber === 0) {
         wins++;
 
-        imgOne.src = './assets/correct-cup.png';
+        imgCupWithBall.src = './assets/cup-with-ball.png';
 
     } else if (randomCupNumber === 1) {
-        imgTwo.src = './assets/correct-cup.png';
+        imgCupWithBall.src = './assets/cup-with-ball.png';
 
     } else {
-        imgThree.src = './assets/correct-cup.png';
+        imgCupWithBall.src = './assets/cup-with-ball.png';
     }
 
     displayWinsLossesAndTotal();
+}
+
+buttonOne.addEventListener('click', () => {
+    
 });
 
 
