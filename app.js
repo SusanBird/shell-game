@@ -3,9 +3,9 @@ const firstButton = document.getElementById('first-cup-button');
 const secondButton = document.getElementById('second-cup-button');
 const thirdButton = document.getElementById('third-cup-button');
 
-const firstCupImage = document.getElementById('first-cup-no-ball-img');
-const secondCupImage = document.getElementById('second-cup-no-ball-img');
-const thirdCupImage = document.getElementById('third-cup-no-ball-img');
+const firstCupImage = document.getElementById('cup-0');
+const secondCupImage = document.getElementById('cup-1');
+const thirdCupImage = document.getElementById('cup-2');
 
 const winsEl = document.getElementById('wins');
 const lossesEl = document.getElementById('losses');
@@ -18,53 +18,47 @@ let total = 0;
 
 //console.log(wins, totals);
 
-// set event listeners 
-  // get user input
-  // use user input to update state 
-  // update DOM to reflect the new state
-firstButton.addEventListener('click', () => {
-    handleGuess(0);
-});
-
-secondButton.addEventListener('click', () => {
-    handleGuess(1);
-});
-
-thirdButton.addEventListener('click', () => {
-    handleGuess(2);
-});
-
 // create function 
 
-function handleGuess(userGuess, correctSpot) {       //userGuess, correctSpot //define correctSpot?
-    firstCupImage.src = './assets/cup-no-ball.png';
-    secondCupImage.src = './assets/cup-no-ball.png';
-    thirdCupImage.src = './assets/cup-no-ball.png';
+function handleGuess() {       //userGuess, correctSpot //define correctSpot?
+    firstCupImage.src = 'assets/cup-no-ball.png';
+    secondCupImage.src = 'assets/cup-no-ball.png';
+    thirdCupImage.src = 'assets/cup-no-ball.png';
     
     total++;
 
     //decide which cup, at random 
-    function getRandomHidingSpot() {   //use this in handleGuess?
-        const hidingPlaces = [
-            'cup-one',
-            'cup-two',
-            'cup-three',
-        ]; 
-        const index = Math.floor(Math.random() * hidingPlaces.length);
-        return hidingPlaces[index];
-    }
+    const numberBetweenZeroAndThree = Math.floor(Math.random() * 3);
     
-    if (index === userGuess) {     //replace correctSpot with hidingSpotEl? No
+    if (numberBetweenZeroAndThree === 0) {
         wins++;
-    } 
-    function displayWinsLossesAndTotal() {
-      // - Update DOM
-      //   - Change numbers in winEl, lossEl, and totalEl
-        winsEl.textContent = wins;
-        lossesEl.textContent = total - wins;
-        totalEl.textContent = total;
-    } 
-    displayWinsLossesAndTotal();
+    }
+     
+    const correctCupImageEl = document.getElementById(`cup-${numberBetweenZeroAndThree}`);
+    correctCupImageEl.src = 'assets/cup-with-ball.png';
+
+    winsEl.textContent = wins;
+    totalEl.textContent = total;
+    lossesEl.textContent = total - wins;
+
+}
+
+
+  // set event listeners 
+  // get user input
+  // use user input to update state 
+  // update DOM to reflect the new state
+    firstButton.addEventListener('click', () => {
+        handleGuess(0); 
+    });
+
+    secondButton.addEventListener('click', () => {
+    handleGuess(1);
+    });
+
+    thirdButton.addEventListener('click', () => {
+    handleGuess(2);
+    });
 }
 
 
@@ -99,3 +93,27 @@ function handleGuess(userGuess, correctSpot) {       //userGuess, correctSpot //
 
 //const imgCupNoBall = document.getElementById('cup-no-ball-img');
 //const imgCupWithBall = document.getElementById('cup-with-ball-img');
+
+ //decide which cup, at random 
+// function getRandomHidingSpot() {   //use this in handleGuess?
+//  const hidingPlaces = [
+  //    'cup-one',
+    //  'cup-two',
+      //'cup-three',
+ // ]; 
+  //const index = Math.floor(Math.random() * hidingPlaces.length);
+  //return hidingPlaces[index];
+//}
+
+//if (index === userGuess) {     //replace correctSpot with hidingSpotEl? No
+ // wins++;
+//} 
+//function displayWinsLossesAndTotal() {
+// - Update DOM
+//   - Change numbers in winEl, lossEl, and totalEl
+ // winsEl.textContent = wins;
+ // lossesEl.textContent = total - wins;
+ // totalEl.textContent = total;
+//} 
+//displayWinsLossesAndTotal();
+//}
