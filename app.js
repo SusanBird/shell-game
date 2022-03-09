@@ -48,18 +48,18 @@ function handleGuess() {       //userGuess, correctSpot //define correctSpot?
   // get user input
   // use user input to update state 
   // update DOM to reflect the new state
-    firstButton.addEventListener('click', () => {
-        handleGuess(0); 
-    });
+firstButton.addEventListener('click', () => {
+    handleGuess(0); 
+});
 
-    secondButton.addEventListener('click', () => {
+secondButton.addEventListener('click', () => {
     handleGuess(1);
-    });
+});
 
-    thirdButton.addEventListener('click', () => {
+thirdButton.addEventListener('click', () => {
     handleGuess(2);
-    });
-}
+});
+
 
 
 

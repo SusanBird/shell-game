@@ -94,8 +94,8 @@ footer {
     height: 300px;
 }
 
-.cup {
-    height: 300px;
+.cup img {
+    width: 200px;
     display: flex;
 }
 
