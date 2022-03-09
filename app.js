@@ -2,8 +2,15 @@
 const firstButton = document.getElementById('first-cup-button');
 const secondButton = document.getElementById('second-cup-button');
 const thirdButton = document.getElementById('third-cup-button');
-const imgCupNoBall = document.getElementById('cup-no-ball-img');
-const imgCupWithBall = document.getElementById('cup-with-ball-img');
+
+
+const firstCupImage = document.getElementById('first-cup-no-ball-img');
+const secondCupImage = document.getElementById('second-cup-no-ball-img');
+const thirdCupImage = document.getElementById('third-cup-no-ball-img');
+
+//const imgCupNoBall = document.getElementById('cup-no-ball-img');
+//const imgCupWithBall = document.getElementById('cup-with-ball-img');
+
 const winsEl = document.getElementById('wins');
 const lossesEl = document.getElementById('losses');
 const totalEl = document.getElementById('total');
@@ -13,11 +20,13 @@ const totalEl = document.getElementById('total');
 let wins = 0;
 let total = 0;
 
-function resetImages() {
+//console.log(wins, totals);
+
+//function resetImages() {
   // - (reset image of all cups)
   // make each image be cup-no-ball
-    imgCupNoBall.src = './assets/cup-no-ball.png';
-}
+    //imgCupNoBall.src = './assets/cup-no-ball.png';
+//}
 
 function displayWinsLossesAndTotal() {
   // - Update DOM
@@ -27,27 +36,32 @@ function displayWinsLossesAndTotal() {
     totalEl.textContent = total;
 }
 
-function getRandomHidingSpot() {
-  const hidingPlaces = [
-      'cup-one',
-      'cup-two',
-      'cup-three',
-  ];   // don't I need a } here?
+function getRandomHidingSpot() {   //use this in handleGuess?
+    const hidingPlaces = [
+        'cup-one',
+        'cup-two',
+        'cup-three',
+    ];   
 
 //decide which cup, at random 
-  const randomCupNumber = Math.floor(Math.random() * hidingPlaces.length);
-  return hidingPlaces[index];
+    const index = Math.floor(Math.random() * hidingPlaces.length);
+    return hidingPlaces[index];
+}
 
-function handleGuess(userGuess, correctSpot) {
+function handleGuess(userGuess, correctSpot) {       //userGuess, correctSpot //define correctSpot?
     
-  resetImages();  //not sure how this will work, better to just input the image instead of a function?
+    firstCupImage.src = './assets/cup-no-ball.png';
+    secondCupImage.src = './assets/cup-no-ball.png';
+    thirdCupImage.src = './assets/cup-no-ball.png';
+   // resetImages();  //not sure how this will work, better to just input the image instead of a function?
     
-  total++;
+    total++;
 
-  const hidingSpotEl = document.getElementById(correctSpot + '-container');
+    const hidingSpotEl = document.getElementById(correctSpot + '-container');
+    hidingSpotEl.src = './assets/cup-with-ball.png';
 
 // then show image with ball
- // not this but something like it:  hidingSpotEl.classList.add('face');
+    //hidingSpotEl.classList.add(imgCupWithBall.src = './assets/cup-with-ball.png');     ///more complex code needed here to make this appear
 
    // if (randomCupNumber === 0) {
         //wins++;
@@ -60,9 +74,9 @@ function handleGuess(userGuess, correctSpot) {
    // } else {
        // imgCupWithBall.src = './assets/cup-with-ball.png';
    // }
-   if (userGuess === correctSpot) {
-    correctGuesses++;
-} 
+    if (index === userGuess) {     //replace correctSpot with hidingSpotEl? No
+        wins++;
+    } 
 
     displayWinsLossesAndTotal();
 }
@@ -73,14 +87,20 @@ function handleGuess(userGuess, correctSpot) {
   // update DOM to reflect the new state
 
 firstButton.addEventListener('click', () => {
-    handleGuess('cup-one', getRandomHidingSpot());
+    handleGuess();
 });
 
 
 secondButton.addEventListener('click', () => {
-    handleGuess('cup-two', getRandomHidingSpot());
+    handleGuess();
 });
 
 thirdButton.addEventListener('click', () => {
-    handleGuess('cup-three', getRandomHidingSpot());
+    handleGuess();
 });
+
+
+
+//'cup-one', getRandomHidingSpot()
+//'cup-two', getRandomHidingSpot()
+//'cup-three', getRandomHidingSpot()

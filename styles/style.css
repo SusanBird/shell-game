@@ -100,21 +100,34 @@ footer {
 }
 
 .cup-with-ball {
-    height: 300px;
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.cup-no-ball-img {
+#first-cup-no-ball-img {
     width: 200px;
     height: 200px;
     margin: 10px;
 }
 
-.cup-with-ball-img {
+#second-cup-no-ball-img {
     width: 200px;
     height: 200px;
     margin: 10px;
+}
+
+#third-cup-no-ball-img {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
+
+#cup-with-ball-img {
+    width: 200px;
+    height: 300px;
+    margin: 10px;
+    position: absolute;
 }

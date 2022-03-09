@@ -21,3 +21,9 @@ How:
 Events: use clicks first cup - if correct, picture changes and wins increases, if incorrect losses increase, cup stays down, either way total guesses increases; cups reset to first cup image; repeat for all cups
 Validate: console.log to make sure each eventListener is working
 Dependency: which picture displayed depends on which button was clicked and whether it was the correct button
+
+## After lunch need to:
+
+x - resize cup with ball
+? - figure out how to insert that and where
+x - make cup w/o ball appear on all three - how does resetStyles() work? - figure out how to reset and make them all disappear - console.log to make sure things are flowing - debug to see what the issues are - check tallies to make sure numbers change
