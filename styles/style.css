@@ -95,40 +95,14 @@ footer {
     height: 300px;
 }
 
-.cup img {
-    width: 200px;
-    display: flex;
-}
-
-.cup-with-ball {
-    height: 200px;
+.cup {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-#first-cup-no-ball-img {
+.cup img {
     width: 200px;
-    height: 200px;
-    margin: 10px;
-}
-
-#second-cup-no-ball-img {
-    width: 200px;
-    height: 200px;
-    margin: 10px;
-}
-
-#third-cup-no-ball-img {
-    width: 200px;
-    height: 200px;
-    margin: 10px;
-}
-
-#cup-with-ball-img {
-    width: 200px;
-    height: 300px;
-    margin: 10px;
-    position: absolute;
+    display: flex;
 }
