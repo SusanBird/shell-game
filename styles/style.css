@@ -1,11 +1,11 @@
 body {
     /* feel free to update these css variables for a quick theme */
 
-    --color1: white;
+    --color1: rgb(90, 9, 197);
     --color2: white;
     --color3: white;
     --color4: white;
-    --color5: white;
+    --color5: rgb(241, 192, 85);
 
     /* https://coolors.co/generate and click export -> scss to get the colors to copy and paste below*/
 
@@ -28,6 +28,7 @@ body {
 
     font-family: 'Titillium Web', sans-serif;
     background-color: var(--color2);
+    background-color: rgb(21, 128, 0);
 }
 
 main {
@@ -49,7 +50,7 @@ section {
     padding-bottom: var(--gutter);
     margin-top: var(--gutter);
     margin-bottom: var(--gutter);
-    border: solid 2px var(--color1);
+    border: solid 15px var(--color1);
 }
 
 header {
