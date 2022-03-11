@@ -27,7 +27,7 @@ function resetStyles() {
 }
 
 // decide which cup, at random 
-function getRandomHidingSpot() {   //use this in handleGuess?
+function getRandomHidingSpot() {
     const hidingPlaces = [
         'cup-one',
         'cup-two',
@@ -42,9 +42,7 @@ function handleGuess(userGuess, correctSpot) {       //userGuess, correctSpot //
     resetStyles();
     
     total++;
-
-    getRandomHidingSpot();
-
+    
     // //decide which cup, at random 
     // const numberBetweenZeroAndThree = Math.floor(Math.random() * 3);
     
@@ -52,7 +50,7 @@ function handleGuess(userGuess, correctSpot) {       //userGuess, correctSpot //
     //     wins++;
     // }
      
-    const correctCupImageEl = document.getElementById(`cup-${numberBetweenZeroAndThree}`);
+    const correctCupImageEl = document.getElementById(`cup-${correctSpot}`);
     correctCupImageEl.src = 'assets/cup-with-ball.png';
 
     winsEl.textContent = wins;
@@ -67,15 +65,22 @@ function handleGuess(userGuess, correctSpot) {       //userGuess, correctSpot //
   // use user input to update state 
   // update DOM to reflect the new state
 firstButton.addEventListener('click', () => {
-    handleGuess(0); 
+    const correctSpot = getRandomHidingSpot(); 
+  
+    handleGuess('cup-one', correctSpot); 
 });
 
 secondButton.addEventListener('click', () => {
-    handleGuess(1);
+    const correctSpot = getRandomHidingSpot(); 
+  
+    handleGuess('cup-two', correctSpot); 
+
 });
 
 thirdButton.addEventListener('click', () => {
-    handleGuess(2);
+    const correctSpot = getRandomHidingSpot(); 
+  
+    handleGuess('cup-three', correctSpot); 
 });
 
 
