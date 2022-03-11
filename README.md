@@ -24,6 +24,11 @@ Dependency: which picture displayed depends on which button was clicked and whet
 
 ## After lunch need to:
 
-x - resize cup with ball
-? - figure out how to insert that and where
-x - make cup w/o ball appear on all three - how does resetStyles() work? - figure out how to reset and make them all disappear - console.log to make sure things are flowing - debug to see what the issues are - check tallies to make sure numbers change
+   x - resize cup with ball
+   ? - figure out how to insert that and where
+   x - make cup w/o ball appear on all three
+    - how does resetStyles() work?
+    - figure out how to reset and make them all disappear
+    - console.log to make sure things are flowing
+    - debug to see what the issues are
+    - check tallies to make sure numbers change
