@@ -20,19 +20,37 @@ let total = 0;
 
 // create function 
 
-function handleGuess() {       //userGuess, correctSpot //define correctSpot?
+function resetStyles() {
     firstCupImage.src = 'assets/cup-no-ball.png';
     secondCupImage.src = 'assets/cup-no-ball.png';
     thirdCupImage.src = 'assets/cup-no-ball.png';
+}
+
+// decide which cup, at random 
+function getRandomHidingSpot() {   //use this in handleGuess?
+    const hidingPlaces = [
+        'cup-one',
+        'cup-two',
+        'cup-three',
+    ]; 
+    const index = Math.floor(Math.random() * hidingPlaces.length);
+    return hidingPlaces[index];
+}
+
+function handleGuess(userGuess, correctSpot) {       //userGuess, correctSpot //define correctSpot?
+    
+    resetStyles();
     
     total++;
 
-    //decide which cup, at random 
-    const numberBetweenZeroAndThree = Math.floor(Math.random() * 3);
+    getRandomHidingSpot();
+
+    // //decide which cup, at random 
+    // const numberBetweenZeroAndThree = Math.floor(Math.random() * 3);
     
-    if (numberBetweenZeroAndThree === 0) {
-        wins++;
-    }
+    // if (numberBetweenZeroAndThree === 0) {
+    //     wins++;
+    // }
      
     const correctCupImageEl = document.getElementById(`cup-${numberBetweenZeroAndThree}`);
     correctCupImageEl.src = 'assets/cup-with-ball.png';
@@ -85,25 +103,7 @@ thirdButton.addEventListener('click', () => {
 //'cup-two', getRandomHidingSpot()
 //'cup-three', getRandomHidingSpot()
 
-//function resetImages() {
-  // - (reset image of all cups)
-  // make each image be cup-no-ball
-    //imgCupNoBall.src = './assets/cup-no-ball.png';
-//}
 
-//const imgCupNoBall = document.getElementById('cup-no-ball-img');
-//const imgCupWithBall = document.getElementById('cup-with-ball-img');
-
- //decide which cup, at random 
-// function getRandomHidingSpot() {   //use this in handleGuess?
-//  const hidingPlaces = [
-  //    'cup-one',
-    //  'cup-two',
-      //'cup-three',
- // ]; 
-  //const index = Math.floor(Math.random() * hidingPlaces.length);
-  //return hidingPlaces[index];
-//}
 
 //if (index === userGuess) {     //replace correctSpot with hidingSpotEl? No
  // wins++;
