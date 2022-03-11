@@ -29,20 +29,23 @@ function resetStyles() {
 // decide which cup, at random 
 function getRandomHidingSpot() {
     const hidingPlaces = [
-        'cup-one',
-        'cup-two',
-        'cup-three',
+        'cup-0',
+        'cup-1',
+        'cup-2',
     ]; 
     const index = Math.floor(Math.random() * hidingPlaces.length);
     return hidingPlaces[index];
 }
 
 function handleGuess(userGuess, correctSpot) {       //userGuess, correctSpot //define correctSpot?
-    
+    firstCupImage.src = 'assets/cup-no-ball.png';
+    secondCupImage.src = 'assets/cup-no-ball.png';
+    thirdCupImage.src = 'assets/cup-no-ball.png';
+
     resetStyles();
     
     total++;
-    
+
     // //decide which cup, at random 
     // const numberBetweenZeroAndThree = Math.floor(Math.random() * 3);
     
@@ -56,7 +59,6 @@ function handleGuess(userGuess, correctSpot) {       //userGuess, correctSpot //
     winsEl.textContent = wins;
     totalEl.textContent = total;
     lossesEl.textContent = total - wins;
-
 }
 
 
@@ -67,20 +69,20 @@ function handleGuess(userGuess, correctSpot) {       //userGuess, correctSpot //
 firstButton.addEventListener('click', () => {
     const correctSpot = getRandomHidingSpot(); 
   
-    handleGuess('cup-one', correctSpot); 
+    handleGuess('cup-0', correctSpot); 
 });
 
 secondButton.addEventListener('click', () => {
     const correctSpot = getRandomHidingSpot(); 
   
-    handleGuess('cup-two', correctSpot); 
+    handleGuess('cup-1', correctSpot); 
 
 });
 
 thirdButton.addEventListener('click', () => {
     const correctSpot = getRandomHidingSpot(); 
   
-    handleGuess('cup-three', correctSpot); 
+    handleGuess('cup-2', correctSpot); 
 });
 
 
