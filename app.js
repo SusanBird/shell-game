@@ -29,32 +29,26 @@ function resetStyles() {
 // decide which cup, at random 
 function getRandomHidingSpot() {
     const hidingPlaces = [
-        'cup-0',
-        'cup-1',
-        'cup-2',
+        '0',
+        '1',
+        '2',
     ]; 
     const index = Math.floor(Math.random() * hidingPlaces.length);
     return hidingPlaces[index];
 }
 
 function handleGuess(userGuess, correctSpot) {       //userGuess, correctSpot //define correctSpot?
-    firstCupImage.src = 'assets/cup-no-ball.png';
-    secondCupImage.src = 'assets/cup-no-ball.png';
-    thirdCupImage.src = 'assets/cup-no-ball.png';
 
     resetStyles();
     
     total++;
 
-    // //decide which cup, at random 
-    // const numberBetweenZeroAndThree = Math.floor(Math.random() * 3);
-    
-    // if (numberBetweenZeroAndThree === 0) {
-    //     wins++;
-    // }
-     
     const correctCupImageEl = document.getElementById(`cup-${correctSpot}`);
     correctCupImageEl.src = 'assets/cup-with-ball.png';
+
+    if (userGuess === correctSpot) {
+        wins++;
+    }
 
     winsEl.textContent = wins;
     totalEl.textContent = total;
@@ -69,20 +63,19 @@ function handleGuess(userGuess, correctSpot) {       //userGuess, correctSpot //
 firstButton.addEventListener('click', () => {
     const correctSpot = getRandomHidingSpot(); 
   
-    handleGuess('cup-0', correctSpot); 
+    handleGuess('0', correctSpot); 
 });
 
 secondButton.addEventListener('click', () => {
     const correctSpot = getRandomHidingSpot(); 
   
-    handleGuess('cup-1', correctSpot); 
-
+    handleGuess('1', correctSpot); 
 });
 
 thirdButton.addEventListener('click', () => {
     const correctSpot = getRandomHidingSpot(); 
   
-    handleGuess('cup-2', correctSpot); 
+    handleGuess('2', correctSpot); 
 });
 
 
@@ -94,33 +87,6 @@ thirdButton.addEventListener('click', () => {
 // then show image with ball
     //hidingSpotEl.classList.add(imgCupWithBall.src = './assets/cup-with-ball.png');     ///more complex code needed here to make this appear
 
-   // if (randomCupNumber === 0) {
-        //wins++;
-
-        //imgCupWithBall.src = './assets/cup-with-ball.png';
-
-   // } else if (randomCupNumber === 1) {
-      // imgCupWithBall.src = './assets/cup-with-ball.png';
-
-   // } else {
-       // imgCupWithBall.src = './assets/cup-with-ball.png';
-   // }
-
-   //'cup-one', getRandomHidingSpot()
-//'cup-two', getRandomHidingSpot()
-//'cup-three', getRandomHidingSpot()
 
 
 
-//if (index === userGuess) {     //replace correctSpot with hidingSpotEl? No
- // wins++;
-//} 
-//function displayWinsLossesAndTotal() {
-// - Update DOM
-//   - Change numbers in winEl, lossEl, and totalEl
- // winsEl.textContent = wins;
- // lossesEl.textContent = total - wins;
- // totalEl.textContent = total;
-//} 
-//displayWinsLossesAndTotal();
-//}
